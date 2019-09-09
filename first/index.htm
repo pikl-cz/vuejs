@@ -1,17 +1,30 @@
 <html>
+  <head> </head>
 
-<head>
-
-</head>
-
-<body>
+  <body>
     <div id="app">
-        <input type="text" v-on:input="changeTitle">
-        <p>{{ title }}</p>
+      <input type="text" v-on:input="changeDesc" />
+
+      <!-- v-once = render just once -->
+      <h1 v-once>{{ title }}</h1>
+
+      <p>{{ description }}</p>
+      <p>{{ printContent() }}</p>
+      <p>{{ printNewTitle() }}</p>
+
+      <!-- v-bind = access to data nelze použít href="{{ title }}" -->
+      <p><a v-bind:href="link" v-bind:title="title">Můj web</a></p>
+
+      <hr />
+
+      <ul>
+        <li>{{ finishedLink }}</li>
+        <!-- v-html = do not escape HTML -->
+        <li v-html="finishedLink"></li>
+      </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="first.js"></script>
-</body>
-
+  </body>
 </html>

@@ -17,7 +17,7 @@ new Vue({
       event.stopPropagation();
     },
     alertMe: function(event) {
-      alert('Alert!');
+      alert('Alert:' + event.target.value);
     }
   }
 });

@@ -1,25 +1,33 @@
 <html>
-  <head>
-    <style></style>
-  </head>
+	<head>
+		<style></style>
+	</head>
 
-  <body>
-    <div id="app">
-      <!-- v-if not just hide/show elements but attach/detach elm. in DOM -->
-      <p v-if="show">You can see me! <span>Subelement</span></p>
-      <p v-else>Now you see me!</p>
-      <p>Do you also see me?</p>
-      <button @click="show = !show">Switch</button>
-    </div>
+	<body>
+		<div
+			id="app">
+			<!-- v-if not just hide/show elements but attach/detach elm. in DOM -->
+			<p v-if="show">You can see me!
+				<span>Subelement</span>
+			</p>
+			<p v-else>Now you see me!</p>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script>
-      new Vue({
-        el: '#app',
-        data: {
-          show: true
-        }
-      });
-    </script>
-  </body>
+			<template v-if="show">
+				<p>Inside template</p>
+				<p>Do you also see me?</p>
+			</template>
+
+			<button @click="show = !show">Switch</button>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+el: '#app',
+data: {
+show: true
+}
+});
+		</script>
+	</body>
 </html>

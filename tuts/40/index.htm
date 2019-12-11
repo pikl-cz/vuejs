@@ -4,13 +4,28 @@
 	<body>
 		<div id="app">
 			<ul>
-				<li v-for="(ingredient, i) in ingredients">{{ ingredient }}
+				<!-- Without key it can cause problems (ordering etc.) !!! -->
+				<li v-for="(ingredient, i) in ingredients" :key="ingredients">{{ ingredient }}
 					({{ i }})</li>
 			</ul>
-			<template v-for="(ingredient, i) in ingredients">
+			<button @click="ingredients.push('spices')">Add new</button>
+			<hr>
+			<ul>
+				<li v-for="person in persons">
+					<div v-for="(value, key, index) in person">
+						{{ key }}:
+						{{ value }}
+						({{ index }})
+					</div>
+				</li>
+			</ul>
+			<hr>
+			<span v-for="n in 10">{{ n }}</span>
+			<hr>
+			<template v-for="(ingredient, index) in ingredients">
 				<h2>{{ ingredient }}</h2>
 				<p>Index:
-					{{ i }}</p>
+					{{ index }}</p>
 			</template>
 		</div>
 
